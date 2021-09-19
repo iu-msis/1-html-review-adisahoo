@@ -11,6 +11,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <title>Assignment1</title>
     <script src="https://unpkg.com/vue@next"></script>
+    
   </head>
   <body>
     <div class="container">
@@ -50,9 +51,10 @@
       <div class="col-md-6">
         <h4>Profile</h4>
         <p>Name: {{person.name.first}} {{person.name.last}}</p>
-          <p>Country : {{person.location.country}}</p>
+          <p >Country : {{person.location.country}}</p>
           <p>Birthdate : {{person.dob.date }} </p>
           <p>Age : {{person.dob.age}} </p>
+          <p>Gender : {{person.gender}}</p>
           <p>Email : <a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
       </div>
       <hr>
