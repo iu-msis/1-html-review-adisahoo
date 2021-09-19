@@ -61,10 +61,13 @@
     padding: 10px;
 }
 
+.profile{
+    background-color: #94b8b8;
+}
+
 .thumbnail{
     border: 1px solid #ddd;
     border-radius: 5px;
-    width: 120px;
     display: block;
     margin-left: auto;
     margin-right: auto;
