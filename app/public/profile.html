@@ -52,7 +52,7 @@
         <h4>Profile</h4>
         <p>Name: {{person.name.first}} {{person.name.last}}</p>
           <p >Country : {{person.location.country}}</p>
-          <p>Birthdate : {{person.dob.date }} </p>
+          <p>Birthdate : {{prettyBirthday }} </p>
           <p>Age : {{person.dob.age}} </p>
           <p>Gender : {{person.gender}}</p>
           <p>Email : <a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
@@ -84,6 +84,7 @@
       </div>        
     </footer>
     </div>
+	<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="js/index.js"></script>
   </body>
 </html>
