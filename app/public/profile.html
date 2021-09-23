@@ -48,7 +48,7 @@
         <p class="source_text"><a v-bind:href="person.picture.large" >Source: Random User Site</a></p>
       </div>
       <div class="col-md-4"></div>
-      <div class="col-md-6">
+      <div class="col-md-8" v-if="person">
         <h4>Profile</h4>
         <p>Name: {{person.name.first}} {{person.name.last}}</p>
           <p >Country : {{person.location.country}}</p>
@@ -57,6 +57,9 @@
           <p>Gender : {{person.gender}}</p>
           <p>Email : <a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
       </div>
+	    <form v-on:submit.prevent="fetchUserData">
+        <button class="btn btn-primary reload" type="submit">Reload</button>
+      </form>
       <hr>
       <div class="row">
         <h4>Get in touch with me:</h4>
