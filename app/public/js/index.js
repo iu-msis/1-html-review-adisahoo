@@ -2,12 +2,14 @@
 const Offer = {
     data(){
         return{
+            "books":[],
             "person":{
                 picture:{},
                 name:{},
                 location:{},
                 dob:{}
             }
+           
         }
     },
     computed: {
@@ -27,10 +29,22 @@ const Offer = {
         .catch( err => {
             console.error(err)
         })
+        },
+        fetchBookData() {
+            fetch('/api/book/')
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.books = responseJson;
+            })
+            .catch( (err) => {
+               console.error(err)
+            })
         }
     },
     created(){          //event book funtion "created()" by vue.js allows you to attach to the event
-        this.fetchUserData();
+        
+        this.fetchBookData();
     }        
       
 }

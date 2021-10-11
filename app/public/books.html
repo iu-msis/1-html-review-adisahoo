@@ -40,7 +40,7 @@
       </div>
     </nav>
     
-    <div>
+    <div id="offerApp">
       <h4>Readings</h4>
       <table id="table-id" class="table table-bordered table-striped" >
         <thead>
@@ -54,54 +54,15 @@
           </tr>         
         </thead>
         <tbody>
-          <tr>
-            <td>Pride and Prejudice</td>
-            <td>Jane Austen</td>
-            <td>1813</td>
-            <td>T. Egerton, Whitehall</td>
-            <td>250</td>
-            <td>$14.99</td>
-          </tr>
-          <tr>
-            <td>Moby Dick</td>
-            <td>Herman Melville</td>
-            <td>1851</td>
-            <td>Harper & Brothers</td>
-            <td>350</td>
-            <td>$20.50</td>
-          </tr>
-          <tr>
-            <td>War and Peace</td>
-            <td>Leo Tolstoy</td>
-            <td>1869</td>
-            <td>The Russian Messenger</td>
-            <td>200</td>
-            <td>$18.60</td>
-          </tr>
-          <tr>
-            <td>The Shining</td>
-            <td>Stephen King</td>
-            <td>1977</td>
-            <td>Doubleday</td>
-            <td>447</td>
-            <td>$15.10</td>
-          </tr>
-          <tr>
-            <td>Cujo</td>
-            <td>Stephen King</td>
-            <td>1981</td>
-            <td>Viking Press</td>
-            <td>309</td>
-            <td>$12.00</td>
-          </tr>
-          <tr>
-            <td>Harry Potter and the Order of the Phoenix</td>
-            <td>J.K. Rowling</td>
-            <td>2003</td>
-            <td>Bloomsbury Publishing</td>
-            <td>766</td>
-            <td>$25.00</td>
-          </tr>
+          <tr v-for="book in books">
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.year }}</td>
+            <td>{{ book.publisher }}</td>
+            <td>{{ book.pagecount }}</td>
+            <td>{{ book.msrp }}</td>
+        </tr>
+         
         </tbody>
       </table>      
     </div>
@@ -154,10 +115,13 @@
       </div>        
     </footer>
     </div>
+    <script src="js/index.js"></script>
     <!--Tablesort plugin from http://tristen.ca/tablesort/demo/ -->
     <script src='js/tablesort.min.js'></script>
     <script>
       new Tablesort(document.getElementById('table-id'));
     </script>
+    
+    
   </body>
 </html>
