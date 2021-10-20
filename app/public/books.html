@@ -40,8 +40,11 @@
       </div>
     </nav>
     
-    <div id="offerApp">
+    <div id="offerApp" class="row-align-items-start">
+      <div class="col col-10">
       <h4>Readings</h4>
+      
+       
       <table id="table-id" class="table table-bordered table-striped" >
         <thead>
           <tr>
@@ -50,14 +53,14 @@
             <th>Year Published</th>
             <th>Publisher</th>
             <th>Page Count</th>
-            <th >MSRP</th>
+            <th>MSRP</th>
           </tr>         
         </thead>
         <tbody>
           <tr v-for="book in books">
             <td>{{ book.title }}</td>
             <td>{{ book.author }}</td>
-            <td>{{ book.year }}</td>
+            <td>{{ book.pubyear }}</td>
             <td>{{ book.publisher }}</td>
             <td>{{ book.pagecount }}</td>
             <td>{{ book.msrp }}</td>
@@ -66,43 +69,39 @@
         </tbody>
       </table>      
     </div>
+   
     <br>
-    <div class="formstr">
+    <div class="formstr col col-8">
       <h4>Add a New Book</h4>
-      <form>
-        <div class="row">
-          <div class="form-group col-md-6 col-lg-6">
-            <label for="booktitle">Book Title</label>
-            <input type="text" class="form-control" id="booktitle" placeholder="Title">
-          </div>
-          <div class="form-group col-md-6 col-lg-6">
-            <label for="bookauthor">Author</label>
-            <input type="text" class="form-control" id="bookauthor" placeholder="Author">
-          </div>
+      <form v-on:submit.prevent="postNewBook">
+        <div class="mb-3">
+          <label for="bookTitle" class="form-label">Book Title</label>
+          <input type="text" v-model="bookForm.title" class="form-control" id="bookTitle">
         </div>
-        
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label for="inputPublisher">Publisher</label>
-            <input type="text" class="form-control" id="inputPublisher" placeholder="Publisher">
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputyear">Year Published</label>
-            <input type="text" class="form-control" id="inputyear">
-          </div>         
-          
-          <div class="form-group col-md-2">
-            <label for="inputpage">Page Count</label>
-            <input type="text" class="form-control" id="inputpage">
-          </div>         
-          <div class="form-group col-md-2">
-            <label for="inputMsrp">MSRP</label>
-            <input type="text" class="form-control" id="inputMsrp">
-          </div>
+        <div class="mb-3">
+          <label for="bookAuthor" class="form-label">Author</label>
+          <input type="text" v-model="bookForm.author" class="form-control" id="bookAuthor">
         </div>
-      
-        <button type="submit" class="formbtn btn btn-primary">Submit</button>
+        <div class="mb-3">
+          <label for="publisher" class="form-label">Publisher</label>
+          <input type="text" v-model="bookForm.publisher" class="form-control" id="publisher">
+        </div>
+        <div class="mb-3">
+          <label for="pubyear" class="form-label">Year Published</label>
+          <input type="text" v-model="bookForm.pubyear" class="form-control" id="pubyear">
+        </div>
+        <div class="mb-3">
+          <label for="pagecount" class="form-label">Page Count</label>
+          <input type="number" v-model="bookForm.pagecount" class="form-control" id="pagecount">
+        </div>
+        <div class="mb-3">
+          <label for="msrp" class="form-label">MSRP</label>
+          <input type="text" v-model="bookForm.msrp" class="form-control" id="msrp">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Book</button>
       </form>
+      
+    </div>
     </div>
     <br>
     <footer class="row">
