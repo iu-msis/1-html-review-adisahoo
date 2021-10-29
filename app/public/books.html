@@ -41,7 +41,7 @@
     </nav>
     
     <div id="offerApp" class="row-align-items-start">
-      <div class="col col-10">
+      <div class="col">
       <h4>Readings</h4>
       
        
@@ -64,6 +64,10 @@
             <td>{{ book.publisher }}</td>
             <td>{{ book.pagecount }}</td>
             <td>{{ book.msrp }}</td>
+            <td>
+              <button type="button" v-on:click="handleEditBook(book)" class="btn btn-outline-secondary btn-sm">Edit</button>
+              <button id="del_btn" type="button" v-on:click="postDeleteBook(book)" class="btn btn-outline-secondary btn-sm">Delete</button>
+            </td>
         </tr>
          
         </tbody>
@@ -72,7 +76,8 @@
    
   
     <div class="formstr col col-8">
-      <h4>Add a New Book</h4>
+      <h4>{{ selectedBook === null ? "Add " : "Edit " }} Book</h4>
+     
       <form v-on:submit.prevent="postNewBook">
         <div class="mb-3">
           <label for="bookTitle" class="form-label">Book Title</label>
@@ -98,7 +103,8 @@
           <label for="msrp" class="form-label">MSRP</label>
           <input type="text" v-model="bookForm.msrp" class="form-control" id="msrp">
         </div>
-        <button type="submit" class="btn btn-primary">Add Book</button>
+        <button type="submit" class="btn btn-primary">{{ selectedBook === null ? "Add " : "Edit " }} Book</button>
+        <button type="button" class="btn btn-outline-secondary" v-if="selectedBook" v-on:click="handleResetEdit">Cancel Edit</button>
       </form>
       
     </div>

@@ -94,6 +94,10 @@ hr{
     border: 2px solid lightgray;
 }
 
+#del_btn{
+    margin-left: 6px;
+}
+
 th[role=columnheader]:not(.no-sort) {
 	cursor: pointer;
 }
